@@ -2469,3 +2469,7 @@ input, select, textarea {
 	.work-col-4 {
 		width:100%;
 	}
+
+	.arow {
+		margin-bottom:10%;
+	}
