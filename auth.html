@@ -1,0 +1,210 @@
+<!DOCTYPE HTML>
+<!--
+	Miniport by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Augustine Rodriguez</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+	</head>
+	<body class="is-preload">
+
+		<!-- Nav -->
+			<nav id="nav">
+				<ul class="container">
+					<li><a href="#top">Top</a></li>
+					<li><a href="#work">Languages</a></li>
+					<li><a href="#portfolio">Portfolio</a></li>
+					<li><a href="https://drive.google.com/file/d/19FBSS05hW2LMyo1W7oBGZbaFDatlUurt/view?usp=sharing">Resume</a></li>
+					<li><a href="https://www.github.com/arodri04">Github</a></li>
+					<li><a href="mailto:augustine.rodriguez55@gmail.com">Email</a></li>
+				</ul>
+			</nav>
+
+		<!-- Home -->
+			
+		<!-- Work -->
+			<article id="work" class="wrapper style2">
+				<div class="container">
+					<header>
+						<h2>Authentication - What is it?</h2>
+						<p>Authentication in cybersecurity is just verifying a persons identity. We do this in three different ways, verifying something you know,
+                            verifying something you have, and verifying something you are.
+                        </p>
+					</header>
+                    <div class="row aln-center">
+						<div class="col-4 col-6-medium col-12-small">
+							<section class="box style1">
+								<!-- <span class="icon featured fa-comments"></span> -->
+								<i class="fa fa-unlock fa-7x"></i>
+								<h3>Something You Know</h3>
+								<p>The easiest of the three, the most basic way we do this is through usernames and passwords.</p>
+							</section>
+						</div>
+                        <div class="col-4 col-6-medium col-12-small">
+							<section class="box style1">
+								<!-- <span class="icon featured fa-comments"></span> -->
+								<i class="fa fa-smile fa-7x"></i>
+								<h3>Something You Are</h3>
+								<p>This falls under things like biometrics, Fingerprints and Facial Recognition.</p>
+							</section>
+						</div>
+                        <div class="col-4 col-6-medium col-12-small">
+							<section class="box style1">
+								<!-- <span class="icon featured fa-comments"></span> -->
+                                <i class="fa fa-id-card fa-7x"></i>
+								<h3>Something You Have</h3>
+								<p>An artifact in your possession. This could be RFID Cards, Tokens, or your cell phone.</p>
+							</section>
+						</div>
+					</div>
+				</div>
+			</article>
+        
+            <article id="work" class="wrapper style2">
+				<div class="container">
+					<header style="margin-top: 0%; margin-bottom: 5em;">
+						<h2>Usernames and Passwords</h2>
+						
+					</header>
+					<div class="row aln-center">
+							<section class="box ">
+                                <div class="grid-container" style="display: flex; ">
+                                    <div class="grid-child .authimg" style="width: 50%;">
+                                        <img src="images/uandp.png" alt="" />
+                                    </div>
+                                    <div class="grid-child" style="width: 50%;">
+                                        <h3>Basic Concept</h3>
+                                        <p>When I first start to build out a project, I like to make a basic concept. This is where
+                                            I build out the idea with no bells and whistles. For username and password authentication
+                                            I want to build a function, that takes in a username and password. Then it searches a list
+                                            of users for the specific one. Checks if the password is correct, and returns a secret message.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h3>
+                                        Flask and SQLalchemy
+                                    </h3>
+                                    <p>
+                                        Now that we have a concept, I had to pick out what I wanted to do for a stack. Previously I had worked with
+                                        Django, and had heard that Flask was like a light version of that. Seeing as I want to focus on the backend
+                                        for this project I thought it would be a good idea being light and easy to work with. As for SQLalchemy, it
+                                        comes with flask as well. We need flask to build out endpoints to register and login our users, and we need
+                                        a SQL database to hold all of our users.
+                                    </p>
+                                </div>
+                                <div>
+                                    <img src="images/register.png" alt="">
+                                </div>
+                                <p>
+                                    This may seem like we jumped ahead a ton, but we will go through it line by line so I can explain what is going on.
+                                    This is the first endpoint we created. It is to register a user into our database. It takes in a POST request, which means
+                                    it recieves data, specifically an email and password. The password portion is immediately encrypted using SHA256. The database
+                                    is then checked to see if the email exists, if it does not a new user with the email and password is created and saved into the 
+                                    database.
+                                </p>
+                                <div>
+                                    <h3>
+                                        SHA256 and Encryption 
+                                    </h3>
+                                    <p>
+                                        We picked SHA256 because another student requested it. We needed a way to encrypt the password so that when the database is attacked,
+                                        the attackers will just get a hashed password, and the users actual password will be saved from the attack. 
+                                    </p>
+                                </div>
+                                <div>
+                                    <h3>
+                                        Login Session 
+                                    </h3>
+                                    <p>
+                                        Now for the login portion. It will be the same as our basic concept program above, just searching the database for the user, then verifying the user exists,
+                                        and verifying their hashed password. The part that changes is the session that we create. We send the server login credentails and it sends back a cookie that 
+                                        is stored on our browser that tells the server what user we are.
+                                    </p>
+                                </div>
+                                <div>
+                                    <img src="images/login.png" alt="">
+                                </div>
+                                <div>
+                                    <h3>
+                                        PostMan
+                                    </h3>
+                                    <p>
+                                        This project I wanted to focus on the backend, so to send information to the server we will be using a program called PostMan. With this program we can send 
+                                        and retrieve information from our back end flask server. We send the information in the form of a JSON in the body of the request. The server then reads the JSON
+                                        and assigns the variables to what they need to be and sends PostMan a session cookie to keep track of what user is logged in.
+                                    </p>
+                                </div>
+                                <div>
+                                    <img src="images/authproject.png" alt="" />
+                                    <img src="images/cookie.png" alt="" />
+                                </div>
+                                <h3>
+                                    Front End Update
+                                </h3>
+                                <p>
+                                    To build this project out, I decided to add in a front end so people can test the register and login features without having to use an application. Now from the 
+                                    browser if you would like to go to register, there is a form to enter information as well as in the login endpoint.
+                                </p>
+                                <div style="display: flex; flex-wrap: wrap; justify-content: space-around;">
+                                    <img src="images/loginfront.png" alt="" />
+                                    <img src="images/registerfrontend.png" alt="" />
+                                </div>
+
+                            </div>
+
+							</section>
+					</div>
+
+
+
+		<!-- Contact -->
+			<article id="contact" class="wrapper style4">
+				<div class="container medium">
+
+					<div class="row">
+						<div class="col-12">
+							<hr />
+							<h3>Find me on ...</h3>
+							<ul class="social">
+								<li><a href="https://www.linkedin.com/in/augustine-rodriguez-954028189/" class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+								<li><a href="https://www.github.com/arodri04" class="icon brands fa-github"><span class="label">Github</span></a></li>
+								<!--
+								<li><a href="#" class="icon solid fa-rss"><span>RSS</span></a></li>
+								<li><a href="#" class="icon brands fa-instagram"><span>Instagram</span></a></li>
+								<li><a href="#" class="icon brands fa-foursquare"><span>Foursquare</span></a></li>
+								<li><a href="#" class="icon brands fa-skype"><span>Skype</span></a></li>
+								<li><a href="#" class="icon brands fa-soundcloud"><span>Soundcloud</span></a></li>
+								<li><a href="#" class="icon brands fa-youtube"><span>YouTube</span></a></li>
+								<li><a href="#" class="icon brands fa-blogger"><span>Blogger</span></a></li>
+								<li><a href="#" class="icon brands fa-flickr"><span>Flickr</span></a></li>
+								<li><a href="#" class="icon brands fa-vimeo"><span>Vimeo</span></a></li>
+								-->
+							</ul>
+							<hr />
+						</div>
+					</div>
+					<footer>
+						<ul id="copyright">
+							<li>&copy; Augustine Rodriguez. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+						</ul>
+					</footer>
+				</div>
+			</article>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
