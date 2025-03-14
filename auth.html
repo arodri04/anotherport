@@ -73,12 +73,12 @@
 						<h2>Usernames and Passwords</h2>
 						
 					</header>
-					<div class="row aln-center">
-							<section class="box ">
-                                <div>
-                                    <div>
-                                        <img src="images/uandp.png" alt="" />
-                                    </div>
+					<div class="row arow">
+							<section class="work-col-4 ">
+                                <div class="box style2">
+									<div class="">
+										<img src="images/uandp.png" alt="" />
+									</div>
                                     <div>
                                         <h3>Basic Concept</h3>
                                         <p>When I first start to build out a project, I like to make a basic concept. This is where
@@ -87,77 +87,80 @@
                                             of users for the specific one. Checks if the password is correct, and returns a secret message.
                                         </p>
                                     </div>
-                                </div>
-                                <div>
-                                    <h3>
-                                        Flask and SQLalchemy
-                                    </h3>
-                                    <p>
-                                        Now that we have a concept, I had to pick out what I wanted to do for a stack. Previously I had worked with
-                                        Django, and had heard that Flask was like a light version of that. Seeing as I want to focus on the backend
-                                        for this project I thought it would be a good idea being light and easy to work with. As for SQLalchemy, it
-                                        comes with flask as well. We need flask to build out endpoints to register and login our users, and we need
-                                        a SQL database to hold all of our users.
-                                    </p>
-                                </div>
-                                <div>
-                                    <img src="images/register.png" alt="">
-                                </div>
-                                <p>
-                                    This may seem like we jumped ahead a ton, but we will go through it line by line so I can explain what is going on.
-                                    This is the first endpoint we created. It is to register a user into our database. It takes in a POST request, which means
-                                    it recieves data, specifically an email and password. The password portion is immediately encrypted using SHA256. The database
-                                    is then checked to see if the email exists, if it does not a new user with the email and password is created and saved into the 
-                                    database.
-                                </p>
-                                <div>
-                                    <h3>
-                                        SHA256 and Encryption 
-                                    </h3>
-                                    <p>
-                                        We picked SHA256 because another student requested it. We needed a way to encrypt the password so that when the database is attacked,
-                                        the attackers will just get a hashed password, and the users actual password will be saved from the attack. 
-                                    </p>
-                                </div>
-                                <div>
-                                    <h3>
-                                        Login Session 
-                                    </h3>
-                                    <p>
-                                        Now for the login portion. It will be the same as our basic concept program above, just searching the database for the user, then verifying the user exists,
-                                        and verifying their hashed password. The part that changes is the session that we create. We send the server login credentails and it sends back a cookie that 
-                                        is stored on our browser that tells the server what user we are.
-                                    </p>
-                                </div>
-                                <div>
-                                    <img src="images/login.png" alt="">
-                                </div>
-                                <div>
-                                    <h3>
-                                        PostMan
-                                    </h3>
-                                    <p>
-                                        This project I wanted to focus on the backend, so to send information to the server we will be using a program called PostMan. With this program we can send 
-                                        and retrieve information from our back end flask server. We send the information in the form of a JSON in the body of the request. The server then reads the JSON
-                                        and assigns the variables to what they need to be and sends PostMan a session cookie to keep track of what user is logged in.
-                                    </p>
-                                </div>
-                                <div>
-                                    <img src="images/authproject.png" alt="" />
-                                    <img src="images/cookie.png" alt="" />
-                                </div>
-                                <h3>
-                                    Front End Update
-                                </h3>
-                                <p>
-                                    To build this project out, I decided to add in a front end so people can test the register and login features without having to use an application. Now from the 
-                                    browser if you would like to go to register, there is a form to enter information as well as in the login endpoint.
-                                </p>
-                                <div style="display: flex; flex-wrap: wrap; justify-content: space-around;">
-                                    <img src="images/loginfront.png" alt="" />
-                                    <img src="images/registerfrontend.png" alt="" />
+									
+									<div>
+                                    	<h3>
+                                        	Flask and SQLalchemy
+                                    	</h3>
+                                    	<p>
+                                        	Now that we have a concept, I had to pick out what I wanted to do for a stack. Previously I had worked with
+                                        	Django, and had heard that Flask was like a light version of that. Seeing as I want to focus on the backend
+                                        	for this project I thought it would be a good idea being light and easy to work with. As for SQLalchemy, it
+                                        	comes with flask as well. We need flask to build out endpoints to register and login our users, and we need
+                                        	a SQL database to hold all of our users.
+                                    	</p>
+                                	</div>
+									<div>
+										<img src="images/register.png" alt="">
+									</div>
+									<p>
+										This may seem like we jumped ahead a ton, but we will go through it line by line so I can explain what is going on.
+										This is the first endpoint we created. It is to register a user into our database. It takes in a POST request, which means
+										it recieves data, specifically an email and password. The password portion is immediately encrypted using SHA256. The database
+										is then checked to see if the email exists, if it does not a new user with the email and password is created and saved into the 
+										database.
+									</p>
+									<div>
+										<h3>
+											SHA256 and Encryption 
+										</h3>
+										<p>
+											We picked SHA256 because another student requested it. We needed a way to encrypt the password so that when the database is attacked,
+											the attackers will just get a hashed password, and the users actual password will be saved from the attack. 
+										</p>
+									</div>
+									<div>
+										<h3>
+											Login Session 
+										</h3>
+										<p>
+											Now for the login portion. It will be the same as our basic concept program above, just searching the database for the user, then verifying the user exists,
+											and verifying their hashed password. The part that changes is the session that we create. We send the server login credentails and it sends back a cookie that 
+											is stored on our browser that tells the server what user we are.
+										</p>
+									</div>
+									<div>
+										<img src="images/login.png" alt="">
+									</div>
+									<div>
+										<h3>
+											PostMan
+										</h3>
+										<p>
+											This project I wanted to focus on the backend, so to send information to the server we will be using a program called PostMan. With this program we can send 
+											and retrieve information from our back end flask server. We send the information in the form of a JSON in the body of the request. The server then reads the JSON
+											and assigns the variables to what they need to be and sends PostMan a session cookie to keep track of what user is logged in.
+										</p>
+									</div>
+									<div>
+										<img src="images/authproject.png" alt="" />
+										<img src="images/cookie.png" alt="" />
+									</div>
+									<h3>
+										Front End Update
+									</h3>
+									<p>
+										To build this project out, I decided to add in a front end so people can test the register and login features without having to use an application. Now from the 
+										browser if you would like to go to register, there is a form to enter information as well as in the login endpoint.
+									</p>
+									<div style="display: flex; flex-wrap: wrap; justify-content: space-around;">
+										<img src="images/loginfront.png" alt="" />
+										<img src="images/registerfrontend.png" alt="" />
+									</div>
+
                                 </div>
 
+                                
                             </div>
 
 							</section>
@@ -170,12 +173,14 @@
 						<h2>Fingerprint Scanner</h2>
 						
 					</header>
-					<div class="row aln-center">
-							<section class="box ">
-                                <div>
-                                    <div>
-                                        <img src="images/fingerprintplan.png" alt="" />
-                                    </div>
+					<div class="row arow">
+							<section class="work-col-4">
+                                <div class="box style4">
+                                    
+									<div href="" class="">
+										<img src="images/fingerprintplan.png" alt="" />
+									</div>
+                                    
                                     <div>
                                         <h3>The Plan</h3>
                                         <p>
@@ -185,11 +190,9 @@
 											for this project I want to use CSV files for both users and door history.
                                         </p>
                                     </div>
-                                </div>
-								<div>
-                                    <div>
-                                        <img src="images/csvwriter.PNG" alt="" />
-                                    </div>
+									<div href="" class="">
+										<img src="images/csvwriter.PNG" alt="" />
+									</div>
                                     <div>
                                         <h3>CSV Basic Concept</h3>
                                         <p>
@@ -200,6 +203,7 @@
                                         </p>
                                     </div>
                                 </div>
+
 							</section>
 					</div>
 
