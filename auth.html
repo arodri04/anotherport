@@ -17,9 +17,9 @@
 		<!-- Nav -->
 			<nav id="nav">
 				<ul class="container">
-					<li><a href="#top">Top</a></li>
-					<li><a href="#work">Languages</a></li>
-					<li><a href="#portfolio">Portfolio</a></li>
+					<li><a href="index.html">Home</a></li>
+					<li><a href="#syk">Something you Know</a></li>
+					<li><a href="#sya">Something you Are</a></li>
 					<li><a href="https://drive.google.com/file/d/19FBSS05hW2LMyo1W7oBGZbaFDatlUurt/view?usp=sharing">Resume</a></li>
 					<li><a href="https://www.github.com/arodri04">Github</a></li>
 					<li><a href="mailto:augustine.rodriguez55@gmail.com">Email</a></li>
@@ -38,14 +38,15 @@
                         </p>
 					</header>
                     <div class="row aln-center">
+						
 						<div class="col-4 col-6-medium col-12-small">
 							<section class="box style1">
 								<!-- <span class="icon featured fa-comments"></span> -->
 								<i class="fa fa-unlock fa-7x"></i>
 								<h3>Something You Know</h3>
-								<p>The easiest of the three, the most basic way we do this is through usernames and passwords.</p>
-							</section>
+								<p>The easiest of the three, the most basic way we do this is through usernames and passwords.</p>								</section>
 						</div>
+					
                         <div class="col-4 col-6-medium col-12-small">
 							<section class="box style1">
 								<!-- <span class="icon featured fa-comments"></span> -->
@@ -66,7 +67,7 @@
 				</div>
 			</article>
         
-            <article id="work" class="wrapper style2">
+            <article id="syk" class="wrapper style2">
 				<div class="container">
 					<header style="margin-top: 0%; margin-bottom: 5em;">
 						<h2>Usernames and Passwords</h2>
@@ -74,11 +75,11 @@
 					</header>
 					<div class="row aln-center">
 							<section class="box ">
-                                <div class="grid-container" style="display: flex; ">
-                                    <div class="grid-child .authimg" style="width: 50%;">
+                                <div>
+                                    <div>
                                         <img src="images/uandp.png" alt="" />
                                     </div>
-                                    <div class="grid-child" style="width: 50%;">
+                                    <div>
                                         <h3>Basic Concept</h3>
                                         <p>When I first start to build out a project, I like to make a basic concept. This is where
                                             I build out the idea with no bells and whistles. For username and password authentication
@@ -162,8 +163,47 @@
 							</section>
 					</div>
 
+			</article>
+			<article id="sya" class="wrapper style2">
+				<div class="container">
+					<header style="margin-top: 0%; margin-bottom: 5em;">
+						<h2>Fingerprint Scanner</h2>
+						
+					</header>
+					<div class="row aln-center">
+							<section class="box ">
+                                <div>
+                                    <div>
+                                        <img src="images/fingerprintplan.png" alt="" />
+                                    </div>
+                                    <div>
+                                        <h3>The Plan</h3>
+                                        <p>
+											The plan for the fingerprint scanner is to connect the fingerprint scanner to the raspberry pi.
+											Then when the scanner sends an ID, the ID is checked in a list of users, if the user is in the list
+											then the door will unlock, and the person will be logged into the doors history. I think
+											for this project I want to use CSV files for both users and door history.
+                                        </p>
+                                    </div>
+                                </div>
+								<div>
+                                    <div>
+                                        <img src="images/csvwriter.PNG" alt="" />
+                                    </div>
+                                    <div>
+                                        <h3>CSV Basic Concept</h3>
+                                        <p>
+											We know that the fingerprint scanner is going to return an ID of the person whos finger was scanned. Using this information
+											we can build out what we want to do with that information prior to setting everything up to get a basic understanding of what 
+											we want to do and how we want to manage the CSV files. The idea is to get an ID, then use that ID to search a users.csv file for 
+											the specific user. Then send the user information over to the door history CSV to log the people going in.
+                                        </p>
+                                    </div>
+                                </div>
+							</section>
+					</div>
 
-
+			</article>
 		<!-- Contact -->
 			<article id="contact" class="wrapper style4">
 				<div class="container medium">
