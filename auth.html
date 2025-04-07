@@ -20,6 +20,7 @@
 					<li><a href="index.html">Home</a></li>
 					<li><a href="#syk">Something you Know</a></li>
 					<li><a href="#sya">Something you Are</a></li>
+					<li><a href="#syh">Something you Have</a></li>
 					<li><a href="https://drive.google.com/file/d/19FBSS05hW2LMyo1W7oBGZbaFDatlUurt/view?usp=sharing">Resume</a></li>
 					<li><a href="https://www.github.com/arodri04">Github</a></li>
 					<li><a href="mailto:augustine.rodriguez55@gmail.com">Email</a></li>
@@ -199,9 +200,126 @@
 											We know that the fingerprint scanner is going to return an ID of the person whos finger was scanned. Using this information
 											we can build out what we want to do with that information prior to setting everything up to get a basic understanding of what 
 											we want to do and how we want to manage the CSV files. The idea is to get an ID, then use that ID to search a users.csv file for 
-											the specific user. Then send the user information over to the door history CSV to log the people going in.
+											the specific user. Then send the user information over to the door history CSV to log the people going in. It will look something like this 
+											when the user is logged.
                                         </p>
                                     </div>
+									<div href="" class="image fittwo">
+										<img src="images/doortime.png" alt=""/>
+									</div>
+
+                                    <div>
+                                        <h3>Hardware Setup</h3>
+										<div href="" class="image fittwo">
+											<img src="images/connections.png" alt="" height="500em"/>
+										</div>
+                                        <p>
+											Luckily the hardware setup for the fingerprint scanner to the Raspberry Pi is extremely easy and well documented. For this I am using a <a href="https://www.raspberrypi.com/products/raspberry-pi-4-model-b/">Raspberry Pi 4</a>
+											And the fingerprint scanner I am going to be using is the <a href="https://docs.circuitpython.org/projects/fingerprint/en/latest/index.html">Adafruit Fingerprint Scanner</a>.	
+											As you can see from the picture above we are just connecting 4 wires, the 3.3 volt, ground, transmit, and recieve data. The Adafruit fingerprint scanner also comes with test code to
+											make sure everything is functioning as intended. Now all I have to do is combine the CSV basic concept code with the Fingerprint scanner, so everytime a fingerprint is scanned, a log is 
+											made into the Door History CSV.
+                                        </p>
+                                    </div>
+									<div>
+                                        <h3>Combining CSV and Scanner Code</h3>
+										<div href="" class="image fittwo">
+											<img src="images/fingerprintcombined.png" alt=""/>
+										</div>
+                                        <p>
+											What we want to do is when a fingerprint is read, it will activate the read user function. Since we already built out the CSV reader all we really need
+											to do is import the function and call it when a fingerprint is read and an ID is returned. This is what we're doing near the bottom, when the confidence 
+											value is certain that the fingerprint is that ID, it starts off the read_user() function. This in turn searches the users CSV file for said user and if the
+											user is found, logs them into the Door History CSV.
+                                        </p>
+                                    </div>
+									<div>
+                                        <h3>Final Setup</h3>
+                                        <p>
+											Now that everything is patched together, we can see how everything functions.
+                                        </p>
+										<div href="" class="image fittwo">
+											<img src="images/fingerprintenroll.png" alt=""/>
+										</div>
+										<p>
+											First we need to enroll the fingerprint and match it to a user. When enrolling a fingerprint, I have a user profile made in users CSV
+											that links that fingerprint to the user.
+										</p>
+										<div href="" class="image fittwo">
+											<img src="images/fingerprintget.png" alt=""/>
+										</div>
+										<p>
+											Now when we scan that fingerprint, it will print the ID to the screen. In the background everything else is being logged into the proper CSV's as well.
+
+										</p>
+										<div href="" class="image fittwo">
+											<img src="images/csvdoorlog.png" alt=""/>
+										</div>
+                                    </div>
+                                </div>
+
+							</section>
+					</div>
+
+			</article>
+			<article id="syh" class="wrapper style2">
+				<div class="container">
+					<header style="margin-top: 0%; margin-bottom: 5em;">
+						<h2>Email Verification</h2>
+						
+					</header>
+					<div class="row arow">
+							<section class="work-col-4">
+                                <div class="box style4">
+                                    <div>
+										<h3>The Plan</h3>
+										<p>
+											So for the last bit of authentication we are going for is email verification.
+											The idea is once you log in with username and password, an email is sent to the 
+											registered email with a code that needs to be input to procede. This will create 
+											multifactor authentication, with both something you know(The username and password)
+											and something you have(access to the email). Luckily we already built a username and password
+											system earlier in the project, this will be serving as our base. Remember if we write reusable reusable
+											code we can save the headache of redoing things.
+										</p>
+										<div href="" class="image fittwo">
+											<img src="images/sendemail.png" alt=""/>
+										</div>
+										<h3>Sending Email</h3>
+										<p>
+											Sending an email works somewhat like creating a CSV like in the last part.
+											Except now we are using <a href="https://docs.python.org/3/library/smtplib.html">SMTPLib</a>, a library used to create emails. We also set up 
+											an email with Google to act as our automated email. And like in the Django app we 
+											are using a dotenv file to keep the password to that email address hidden, so it doesn't 
+											get posted on the internet.
+										</p>
+										<div href="" class="image fittwo">
+											<img src="images/verifyemail.png" alt=""/>
+										</div>
+										<h3>Verifying the Email</h3>
+										<p>
+											Now all we have to do is after the username and password are checked,
+											we create a random 6 digit number with random integer, if it ends up being 
+											less than 100000 we will turn it into a string and pad out the left side with
+											0's until it reaches 6 digits. Then that number is sent with the email. Then an input 
+											prompts the user for the number. When that number is input then the user will finally 
+											get the secret message.
+
+										</p>
+										<h3>All Together</h3>
+										<div href="" class="image fittwo">
+											<img src="images/email.png" alt=""/>
+										</div>
+										<p>
+											We enter the email, and the password. It prompts us for the 6 digit number while simultaniously sending the email.
+										</p>
+										<div href="" class="image fittwo">
+											<img src="images/Screenshot_20250404_112346_Chrome.jpg" alt="" height="500em"/>
+										</div>
+										<p>
+											We enter that 6 digit number into the terminal and it produces the secret message.
+										</p>
+									</div>
                                 </div>
 
 							</section>
